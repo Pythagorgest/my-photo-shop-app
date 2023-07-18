@@ -1,38 +1,276 @@
-.App {
-  text-align: center;
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  margin: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.top-bar{
+  background-color: #181a1d;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  align-items:center;
+  direction: rtl;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.work-place-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: stretch;
 }
 
-.App-link {
-  color: #61dafb;
+
+.main-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  height: 100vh;
+  width: 100vw;
+  background-color: #232528;
+}
+
+.canvas{
+  padding: 10px;
+  max-width: 90vw;
+  max-height: 90vh;
+  width: 100%;
+  height: 100%;
+}
+
+.sidebar {
+  max-width: 150px;
+  background-color: #181a1d;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.sidebar-item {
+  color: #F6F6F6;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: #38a88f;
+  padding: 1rem;
+  position: relative;
+  transition: background-color 150ms;
+}
+
+.button{
+  font: 300 15px "Segoe UI";
+  background-color: #38a88f;
+  color: #F6F6F6;
+  width: 150px;
+  height: 40px;
+  border: none;
+}
+
+.button[type = "file"]{
+  font: 300 15px "Segoe UI";
+  background-color: #38a88f;;
+  color: #F6F6F6;
+  width: 350px;
+  height: 40px;
+  padding: 10px;
+  position:relative;
+}
+ 
+
+
+.sidebar-item:hover, .sidebar-item:focus {
+  background-color: #248a74;
+}
+
+.sidebar-item.active {
+  background-color: #025e4a;
+}
+
+.sidebar-item::after {
+  content: '';
+  position: absolute;
+  width: 80%;
+  left: 10%;
+  bottom: 0;
+  height: 1px;
+  background-color: #181a1d;
+}
+
+.sidebar-item:last-child::after {
+  display: none;
+}
+
+.slider-container {
+  padding: 1rem;
+}
+
+.slider {
+  width: 100%;
+  cursor: pointer;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+  cursor: pointer;
+  background-color: transparent;
+
+  &:focus {
+    outline-color: #f8b195;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 3px;
+  background: rgb(246, 114, 128);
+  background: -webkit-linear-gradient(
+    left,
+    rgba(246, 114, 128, 1) 0%,
+    rgba(192, 108, 132, 1) 50%,
+    rgba(53, 92, 125, 1) 100%
+  );
+  background: linear-gradient(
+    to right,
+    rgba(246, 114, 128, 1) 0%,
+    rgba(192, 108, 132, 1) 50%,
+    rgba(53, 92, 125, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(
+    startColorstr="#f67280",
+    endColorstr="#355c7d",
+    GradientType=1
+  );
+}
+
+input[type="range"]::-moz-range-track {
+  -moz-appearance: none;
+  appearance: none;
+  height: 3px;
+  background: rgb(246, 114, 128);
+  background: -moz-linear-gradient(
+    left,
+    rgba(246, 114, 128, 1) 0%,
+    rgba(192, 108, 132, 1) 50%,
+    rgba(53, 92, 125, 1) 100%
+  );
+  background: linear-gradient(
+    to right,
+    rgba(246, 114, 128, 1) 0%,
+    rgba(192, 108, 132, 1) 50%,
+    rgba(53, 92, 125, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(
+    startColorstr="#f67280",
+    endColorstr="#355c7d",
+    GradientType=1
+  );
+}
+
+input[type="range"]::-ms-track {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  height: 3px;
+  background: rgb(246, 114, 128);
+  background: -moz-linear-gradient(
+    left,
+    rgba(246, 114, 128, 1) 0%,
+    rgba(192, 108, 132, 1) 50%,
+    rgba(53, 92, 125, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    left,
+    rgba(246, 114, 128, 1) 0%,
+    rgba(192, 108, 132, 1) 50%,
+    rgba(53, 92, 125, 1) 100%
+  );
+  background: linear-gradient(
+    to right,
+    rgba(246, 114, 128, 1) 0%,
+    rgba(192, 108, 132, 1) 50%,
+    rgba(53, 92, 125, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(
+    startColorstr="#f67280",
+    endColorstr="#355c7d",
+    GradientType=1
+  );
+}
+
+input[type="range"]::-webkit-slider-thumb {
+-webkit-appearance: none;
+appearance: none;
+border: 2px solid #f8b195;
+border-radius: 50%;
+height: 20px;
+width: 20px;
+position: relative;
+bottom: 8px;
+background: #222
+  url("http://codemenatalie.com/wp-content/uploads/2019/09/slider-thumb.png")
+  center no-repeat;
+background-size: 50%;
+box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.4);
+cursor: grab;
+  
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+
+input[type="range"]::-moz-range-thumb {
+  -moz-appearance: none;
+  appearance: none;
+  border: 2px solid #f8b195;
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  position: relative;
+  bottom: 8px;
+  background: #222
+    url("http://codemenatalie.com/wp-content/uploads/2019/09/slider-thumb.png")
+    center no-repeat;
+  background-size: 50%;
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.4);
+  cursor: grab;
+  
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+input[type="range"]::-ms-thumb {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 2px solid #f8b195;
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  position: relative;
+  bottom: 8px;
+  background: #222
+    url("http://codemenatalie.com/wp-content/uploads/2019/09/slider-thumb.png")
+    center no-repeat;
+  background-size: 50%;
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.4);
+  cursor: grab;
+  
+  &:active {
+    cursor: grabbing;
   }
 }
